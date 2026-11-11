@@ -1,9 +1,12 @@
 // Cloudflare Workers: static assets of the built app with SPA fallback.
-// Deploy: npx wrangler deploy (after `vite build`).
+// Deploy: npx wrangler deploy (it runs the build command first).
 {
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "bilmquest",
   "compatibility_date": "2026-11-01",
+  "build": {
+    "command": "npm run build"
+  },
   "assets": {
     "directory": "./dist",
     "not_found_handling": "single-page-application"
